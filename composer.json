@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Box\\": "src/Box/"
+            "Box\\": "src/"
         }
     }
 }
