@@ -1,0 +1,31 @@
+Options -Indexes
+
+<FilesMatch ".inc$">
+order allow,deny
+deny from all
+</FilesMatch> 
+<FilesMatch ".ini$">
+order allow,deny
+deny from all
+</FilesMatch>
+<FilesMatch ".tpl$">
+order allow,deny
+deny from all
+</FilesMatch>
+<FilesMatch ".sqlite">
+order allow,deny
+deny from all
+</FilesMatch>
+<FilesMatch "composer\.*">
+deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^administrator$ backsite.php?q=$1 [L,QSA]
+RewriteRule ^administrator/(.*)$ backsite.php?q=$1 [L,QSA]
+
+RewriteCond %{SCRIPT_FILENAME} !-f 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
